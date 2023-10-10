@@ -1,0 +1,3 @@
+Select product_id,year as first_year,quantity,price 
+from Sales
+where(product_id,year)in(Select product_id,min(year)over(partition by product_id ) from Sales)
